@@ -67,7 +67,7 @@ export default function ({ coffee }: { coffee: Coffee }) {
 
   return (
     // <div className='test-border'>
-    <div className='chart-container test-border'>
+    <div className='chart-container'>
       <PolarArea title={coffee.name}
         // style={{ zIndex: 10 }}
         width={"100%"}
