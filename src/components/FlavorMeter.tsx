@@ -1,4 +1,4 @@
-import '../App.css'
+// import '../App.css'
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -7,15 +7,14 @@ import {
   Legend,
 } from 'chart.js';
 import { PolarArea } from "react-chartjs-2";
-import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';
 
-type FlavorLevel = 0 | 1 | 2 | 3 | 4;
+export type FlavorLevel = 0 | 1 | 2 | 3 | 4;
 const MAX_FLAVOR = 4;
 const FALVOR_SCALE_MIN = -1; // allowance for logo in center
 const FLAVOR_SCALE_MAX = 4;
 
 
-type FlavorLevels = {
+export type FlavorLevels = {
   chocolate: FlavorLevel,
   spice: FlavorLevel,
   nut: FlavorLevel,
@@ -39,11 +38,31 @@ const flavorColors: { [Property in keyof FlavorLevels]: string } = {
 
 export type Coffee = {
   name: string,
-  type: 'single origin' | 'blend',
+  price: string,
+  origin: string,
   region: string,
+  locality: string,
+  farm: string,
+  producer: string,
+  altitude: string,
+  variety: string,
+  process: string,
+  roast: string,
   description: string,
   flavorLevels: FlavorLevels,
 }
+
+export const coffeeInfoListItems: (keyof Coffee)[] = [
+  'origin',
+  'region',
+  'locality',
+  'farm',
+  'producer',
+  'altitude',
+  'variety',
+  'process',
+  'roast'
+]
 
 
 export default function ({ coffee }: { coffee: Coffee }) {
@@ -51,26 +70,12 @@ export default function ({ coffee }: { coffee: Coffee }) {
   // register chart stuff to render
   ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend); // ChartDataLabels
 
-  window.addEventListener('beforeprint', () => {
-    for (let id in ChartJS.instances) {
-      // ChartJS.instances[id].resize(100, 100);
-      // ChartJS.instances[id].resize();
-      console.log(id);
-
-    }
-  });
-  // window.addEventListener('afterprint', () => {
-  //   for (let id in ChartJS.instances) {
-  //     ChartJS.instances[id].resize();
-  //   }
-  // });
-
   return (
     // <div className='test-border'>
-    <div className='chart-container'>
+    <div style={{ position: 'relative', aspectRatio: 1, width:'100%' }}>
       <PolarArea title={coffee.name}
         // style={{ zIndex: 10 }}
-        width={"100%"}
+        // width={"100%"}
         data={{
 
           labels: Object.keys(flavorColors).map(flavor => flavor.toUpperCase()),
@@ -81,8 +86,8 @@ export default function ({ coffee }: { coffee: Coffee }) {
               backgroundColor: Object.values(flavorColors),
               borderWidth: 0,
               borderColor: 'white',
-              borderRadius: 10,
-              borderAlign: 'inner'
+              borderRadius: (context) => context.chart.width / 50,
+              // borderAlign: 'inner'
             },
           ],
         }}
