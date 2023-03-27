@@ -4,6 +4,8 @@ import { Coffee, coffeeInfoListItems } from "./FlavorMeter";
 export default function ({ coffee }: { coffee: Coffee }) {
   return (
     <>
+      <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
+
       <div style={{ fontSize: 28, fontWeight: 'bold' }}>
         {coffee.name}
       </div>
