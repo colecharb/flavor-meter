@@ -38,6 +38,7 @@ h1 {
 }
 
 button {
+  text-decoration: underline;
   border-color: inherit;
   border-radius: 8px;
   color: inherit;
