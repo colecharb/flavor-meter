@@ -1,4 +1,4 @@
-import testCoffee from "../testCoffee";
+import testCoffee from "../coffees";
 import { Coffee, coffeeInfoListItems } from "./FlavorMeter";
 
 export default function ({ coffee }: { coffee: Coffee }) {
@@ -12,15 +12,22 @@ export default function ({ coffee }: { coffee: Coffee }) {
         {`$${coffee.price} | 12 oz. bag`}
       </div>
 
+      <p>
+        {coffeeInfoListItems.map((value) => (
+          <div style={{ fontSize: 16 }}>
+            <>
+              <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
+                {`${value} – `}
+              </span>
+              {coffee[value]}
+            </>
+          </div>
+        ))}
+      </p>
 
-      {coffeeInfoListItems.map((value) => (
-        <div style={{ fontSize: 16 }}>
-          <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>
-            {`${value} – `}
-          </span>
-          {testCoffee[value]}
-        </div>
-      ))}
+      <p>
+        {coffee.description}
+      </p>
 
     </>
   )
