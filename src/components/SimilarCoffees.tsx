@@ -17,17 +17,19 @@ export default function ({ index, coffees, setCoffeeIndex }: { index: number, co
       <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
 
       <span style={{ fontSize: '24px', fontWeight: 'bold' }}>
-        Similar Coffees:
+        Similar Coffees
       </span>
 
-      {similarCoffeeIndices.map(i => (
-        <button
-          onClick={() => setCoffeeIndex(i)}
-          style={{ textAlign: 'left', paddingLeft: '0px' }}
-        >
-          {coffees[i].name}
-        </button>
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', }}>
+        {similarCoffeeIndices.map(i => (
+          <button
+            onClick={() => setCoffeeIndex(i)}
+          // style={{ textAlign: 'left', paddingLeft: '0px' }}
+          >
+            {coffees[i].name}
+          </button>
       ))}
+      </div>
 
     </>
   )
