@@ -10,7 +10,7 @@ import { PolarArea } from "react-chartjs-2";
 
 export type FlavorLevel = 0 | 1 | 2 | 3 | 4;
 const MAX_FLAVOR = 4;
-const FALVOR_SCALE_MIN = -1; // allowance for logo in center
+const FALVOR_SCALE_MIN = 0; // allowance for logo in center
 const FLAVOR_SCALE_MAX = 4;
 
 
@@ -24,9 +24,9 @@ export type FlavorLevels = {
   caramel: FlavorLevel,
 }
 
-type FlavorName = keyof FlavorLevels; //'chocolate' | 'spice' | 'nut' | 'herb' | 'flower' | 'fruit' | 'caramel';
+export type FlavorName = keyof FlavorLevels; //'chocolate' | 'spice' | 'nut' | 'herb' | 'flower' | 'fruit' | 'caramel';
 
-const flavorColors: { [Property in keyof FlavorLevels]: string } = {
+const flavorColors: { [Property in FlavorName]: string } = {
   chocolate: '#844229',
   spice: '#af4e25',
   nut: '#9a6126',
@@ -82,7 +82,7 @@ export default function ({ coffee }: { coffee: Coffee }) {
           datasets: [
             {
               label: 'strength',
-              data: Object.keys(flavorColors).map(name => coffee.flavorLevels[name]),//Object.values(coffee.flavors),
+              data: Object.keys(flavorColors).map(name => coffee.flavorLevels[name as FlavorName]),//Object.values(coffee.flavors),
               backgroundColor: Object.values(flavorColors),
               borderWidth: 0,
               borderColor: 'white',
@@ -109,8 +109,8 @@ export default function ({ coffee }: { coffee: Coffee }) {
               min: FALVOR_SCALE_MIN,
               max: FLAVOR_SCALE_MAX,
               pointLabels: {
-                color: Object.values(flavorColors),
-                // color: (ctx) => flavorColors[ctx.label],
+                // color: Object.values(flavorColors),
+                color: (context) => flavorColors[context.label.toLowerCase() as FlavorName],
                 display: true,
                 centerPointLabels: true,
                 font: (context) => ({
