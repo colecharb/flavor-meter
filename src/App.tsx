@@ -40,7 +40,7 @@ function App() {
         }}>
           <FlavorMeter coffee={coffee} />
 
-          <button
+          {/* <button
             onClick={newCoffeeIndex}
             style={{
               color: 'red',
@@ -48,7 +48,7 @@ function App() {
             }}
           >
             Random Coffee
-          </button>
+          </button> */}
 
           <SimilarCoffees
             index={coffeeIndex}
@@ -66,6 +66,17 @@ function App() {
 
       </div>
 
+      <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
+
+      <div style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+        {coffees.map((coffee, index) =>
+          <button
+            onClick={() => setCoffeeIndex(index)}
+          >
+            {coffee.name}
+          </button>
+        )}
+      </div>
 
     </div>
   );
