@@ -13,13 +13,6 @@ function App() {
 
   const [coffeeIndex, setCoffeeIndex] = useState<number>(getRandomCoffeeIndex());
 
-  const newCoffeeIndex = () => {
-    // sets coffeeIndex to a new random value (avoids current value)
-    setCoffeeIndex(index => (
-      (index + Math.ceil(Math.random() * (coffees.length - 1))) % coffees.length
-    ));
-  }
-
   const coffee = coffees[coffeeIndex];
 
   return (
@@ -29,30 +22,23 @@ function App() {
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
-        gap: '5vw'
+        gap: '2em'
       }}>
 
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          width: '50%',
-          minWidth: '275px'
+          // width: '50%',
+          flex: 1,
+          minWidth: '300px',
+          maxWidth: '400px'
         }}>
 
           <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
 
-
-          <FlavorMeter coffee={coffee} />
-
-          {/* <button
-            onClick={newCoffeeIndex}
-            style={{
-              color: 'red',
-              border: 'solid 1px'
-            }}
-          >
-            Random Coffee
-          </button> */}
+          <div style={{ display: 'block', width: '100%' }}>
+            <FlavorMeter coffee={coffee} />
+          </div>
 
           <SimilarCoffees
             index={coffeeIndex}
@@ -62,7 +48,7 @@ function App() {
 
         </div>
 
-        <div style={{ flex: 1, minWidth: '300px' }}>
+        <div style={{ flex: 2, minWidth: '300px' }}>
           <CoffeeInfo coffee={coffee} />
         </div>
 
