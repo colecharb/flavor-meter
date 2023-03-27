@@ -38,6 +38,10 @@ function App() {
           width: '50%',
           minWidth: '275px'
         }}>
+
+          <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
+
+
           <FlavorMeter coffee={coffee} />
 
           {/* <button
@@ -59,16 +63,18 @@ function App() {
         </div>
 
         <div style={{ flex: 1, minWidth: '300px' }}>
-
           <CoffeeInfo coffee={coffee} />
-
         </div>
 
       </div>
 
       <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
 
-      <div style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+      <span style={{ fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>
+        All Coffees
+      </span>
+
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
         {coffees.map((coffee, index) =>
           <button
             onClick={() => setCoffeeIndex(index)}
