@@ -7,7 +7,7 @@ export default function ({ index, coffees, setCoffeeIndex }: { index: number, co
   const similarCoffeeIndices = getSimilarCoffeeIndices({
     toIndex: index,
     from: coffees,
-    threshold: 2,
+    threshold: 2.25,
   });
 
   console.log(similarCoffeeIndices);
