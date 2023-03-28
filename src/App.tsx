@@ -4,6 +4,7 @@ import FlavorMeter, { Coffee } from './components/FlavorMeter'
 import coffees from './coffees';
 import { useState } from 'react';
 import SimilarCoffees from './components/SimilarCoffees';
+import HorizontalLine from './components/HorizontalLine';
 
 
 function App() {
@@ -34,33 +35,35 @@ function App() {
           maxWidth: '400px'
         }}>
 
-          <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
+          <HorizontalLine />
 
           <div style={{ display: 'block', width: '100%' }}>
             <FlavorMeter coffee={coffee} />
           </div>
+
+
+
+        </div>
+
+        <div style={{ flex: 2, minWidth: '300px' }}>
+          <CoffeeInfo coffee={coffee} />
 
           <SimilarCoffees
             index={coffeeIndex}
             coffees={coffees}
             setCoffeeIndex={setCoffeeIndex}
           />
-
-        </div>
-
-        <div style={{ flex: 2, minWidth: '300px' }}>
-          <CoffeeInfo coffee={coffee} />
         </div>
 
       </div>
 
-      <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
+      <HorizontalLine />
 
       <span style={{ fontSize: '24px', fontWeight: 'bold', textAlign: 'center' }}>
         All Coffees
       </span>
 
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5em' }}>
         {coffees.map((coffee, index) =>
           <button
             onClick={() => setCoffeeIndex(index)}

@@ -1,4 +1,5 @@
 import { Coffee, FlavorName } from "./FlavorMeter";
+import HorizontalLine from "./HorizontalLine";
 
 export default function ({ index, coffees, setCoffeeIndex }: { index: number, coffees: Coffee[], setCoffeeIndex: React.Dispatch<React.SetStateAction<number>> }) {
 
@@ -7,20 +8,20 @@ export default function ({ index, coffees, setCoffeeIndex }: { index: number, co
   const similarCoffeeIndices = getSimilarCoffeeIndices({
     toIndex: index,
     from: coffees,
-    threshold: 2.25,
+    threshold: 3,
   });
 
   console.log(similarCoffeeIndices);
 
   return (
     <>
-      <div style={{ height: '2px', background: 'black', marginTop: '1em', marginBottom: '1em' }} />
+      <HorizontalLine />
 
       <span style={{ fontSize: '24px', fontWeight: 'bold' }}>
         Similar Coffees
       </span>
 
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', }}>
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '0.5em' }}>
         {similarCoffeeIndices.map(i => (
           <button
             onClick={() => setCoffeeIndex(i)}
