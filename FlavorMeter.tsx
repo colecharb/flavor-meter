@@ -98,9 +98,6 @@ export default function ({ coffee }: { coffee: Coffee }) {
             animateScale: true,
           },
           responsive: true,
-          onResize(chart, size) {
-
-          },
           maintainAspectRatio: true,
           aspectRatio: 1,
           scales: {
@@ -132,6 +129,9 @@ export default function ({ coffee }: { coffee: Coffee }) {
             legend: {
               display: false,
             },
+            tooltip: {
+              enabled: false,
+            }
             // datalabels: {
             //   display: false,
             //   formatter: (value, context: Context) => (context.chart.data.labels[context.dataIndex] ?? null),
