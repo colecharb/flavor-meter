@@ -6,23 +6,21 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { PolarArea } from "react-chartjs-2";
+import { PolarArea } from 'react-chartjs-2';
 
 export type FlavorLevel = 0 | 1 | 2 | 3 | 4;
-const MAX_FLAVOR = 4;
 const FALVOR_SCALE_MIN = 0; // allowance for logo in center
 const FLAVOR_SCALE_MAX = 4;
 
-
 export type FlavorLevels = {
-  chocolate: FlavorLevel,
-  spice: FlavorLevel,
-  nut: FlavorLevel,
-  herb: FlavorLevel,
-  flower: FlavorLevel,
-  fruit: FlavorLevel,
-  caramel: FlavorLevel,
-}
+  chocolate: FlavorLevel;
+  spice: FlavorLevel;
+  nut: FlavorLevel;
+  herb: FlavorLevel;
+  flower: FlavorLevel;
+  fruit: FlavorLevel;
+  caramel: FlavorLevel;
+};
 
 export type FlavorName = keyof FlavorLevels; //'chocolate' | 'spice' | 'nut' | 'herb' | 'flower' | 'fruit' | 'caramel';
 
@@ -34,23 +32,23 @@ const flavorColors: { [Property in FlavorName]: string } = {
   flower: '#afc000',
   fruit: '#edba22',
   caramel: '#cd8022',
-}
+};
 
 export type Coffee = {
-  name: string,
-  price: string,
-  origin: string,
-  region: string,
-  locality: string,
-  farm: string,
-  producer: string,
-  altitude: string,
-  variety: string,
-  process: string,
-  roast: string,
-  description: string,
-  flavorLevels: FlavorLevels,
-}
+  name: string;
+  price: string;
+  origin: string;
+  region: string;
+  locality: string;
+  farm: string;
+  producer: string;
+  altitude: string;
+  variety: string;
+  process: string;
+  roast: string;
+  description: string;
+  flavorLevels: FlavorLevels;
+};
 
 export const coffeeInfoListItems: (keyof Coffee)[] = [
   'origin',
@@ -61,28 +59,30 @@ export const coffeeInfoListItems: (keyof Coffee)[] = [
   'altitude',
   'variety',
   'process',
-  'roast'
-]
+  'roast',
+];
 
-
-export default function ({ coffee }: { coffee: Coffee }) {
-
+export default function FlavorMeter({ coffee }: { coffee: Coffee }) {
   // register chart stuff to render
   ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend); // ChartDataLabels
 
   return (
     // <div className='test-border'>
-    <div style={{ position: 'relative', aspectRatio: 1, width:'100%' }}>
-      <PolarArea title={coffee.name}
+    <div style={{ position: 'relative', aspectRatio: 1, width: '100%' }}>
+      <PolarArea
+        title={coffee.name}
         // style={{ zIndex: 10 }}
         // width={"100%"}
         data={{
-
-          labels: Object.keys(flavorColors).map(flavor => flavor.toUpperCase()),
+          labels: Object.keys(flavorColors).map((flavor) =>
+            flavor.toUpperCase()
+          ),
           datasets: [
             {
               label: 'strength',
-              data: Object.keys(flavorColors).map(name => coffee.flavorLevels[name as FlavorName]),//Object.values(coffee.flavors),
+              data: Object.keys(flavorColors).map(
+                (name) => coffee.flavorLevels[name as FlavorName]
+              ), //Object.values(coffee.flavors),
               backgroundColor: Object.values(flavorColors),
               borderWidth: 0,
               borderColor: 'white',
@@ -107,7 +107,8 @@ export default function ({ coffee }: { coffee: Coffee }) {
               max: FLAVOR_SCALE_MAX,
               pointLabels: {
                 // color: Object.values(flavorColors),
-                color: (context) => flavorColors[context.label.toLowerCase() as FlavorName],
+                color: (context) =>
+                  flavorColors[context.label.toLowerCase() as FlavorName],
                 display: true,
                 centerPointLabels: true,
                 font: (context) => ({
@@ -122,7 +123,7 @@ export default function ({ coffee }: { coffee: Coffee }) {
                 lineWidth: 1,
 
                 // display: false,
-              }
+              },
             },
           },
           plugins: {
@@ -131,7 +132,7 @@ export default function ({ coffee }: { coffee: Coffee }) {
             },
             tooltip: {
               enabled: false,
-            }
+            },
             // datalabels: {
             //   display: false,
             //   formatter: (value, context: Context) => (context.chart.data.labels[context.dataIndex] ?? null),
@@ -142,12 +143,12 @@ export default function ({ coffee }: { coffee: Coffee }) {
             //     size: 16
             //   }
             // }
-          }
+          },
         }}
       />
     </div>
     // </div>
-  )
+  );
 }
 
 /// CUSTOM PLUGIN

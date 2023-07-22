@@ -1,14 +1,11 @@
-import { Coffee, coffeeInfoListItems } from "./FlavorMeter";
-import HorizontalLine from "./HorizontalLine";
+import { Coffee } from './FlavorMeter';
 
-export default function ({ coffee }: { coffee: Coffee }) {
+export default function CoffeeInfo({ coffee }: { coffee: Coffee }) {
   return (
     <>
       {/* <HorizontalLine /> */}
 
-      <h4 style={{ fontSize: '1.6em' }}>
-        {coffee.name}
-      </h4>
+      <h4 style={{ fontSize: '1.6em' }}>{coffee.name}</h4>
 
       {/* <div style={{ color: "red", fontSize: 20, fontVariant: 'tabular-nums' }} >
         {`$${coffee.price} | 12 oz. bag`}
@@ -37,7 +34,6 @@ export default function ({ coffee }: { coffee: Coffee }) {
       {/* <p>
         {coffee.description}
       </p> */}
-
     </>
-  )
+  );
 }
