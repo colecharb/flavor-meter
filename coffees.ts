@@ -1,7 +1,6 @@
-import { Coffee } from "./components/FlavorMeter";
+import { Coffee } from './FlavorMeter';
 
-
-let coffees: Coffee[] = [
+const coffees: Coffee[] = [
   {
     name: 'Galaxy Gesha',
     price: '[amount]',
@@ -23,7 +22,8 @@ let coffees: Coffee[] = [
       fruit: 3,
       caramel: 2,
     },
-    description: 'Sweet, spicy floral aroma with a vast range of flavors including ginger, allspice, guava, coriander, tangerine zest, rosemary, hops, lavender, apple, sweet chili pepper, cannabis, carob, Nutella, eucalyptus, spruce, caramel and bubble gum. Like a ginger apple turnover with a long, lavish finish.'
+    description:
+      'Sweet, spicy floral aroma with a vast range of flavors including ginger, allspice, guava, coriander, tangerine zest, rosemary, hops, lavender, apple, sweet chili pepper, cannabis, carob, Nutella, eucalyptus, spruce, caramel and bubble gum. Like a ginger apple turnover with a long, lavish finish.',
   },
   {
     name: 'Pedregal Pink',
@@ -46,7 +46,8 @@ let coffees: Coffee[] = [
       fruit: 4,
       caramel: 3,
     },
-    description: 'Plush yet refined tropical aroma with rich, sweet liquor boasting crisp, clean fruit flavors of pomelo, lychee, pineapple, pink lemonade, wild strawberry, fruit striped gum, and hard candy along with herbal tones of Earl Grey black tea and chocolate. Floral, tangy, vibrant and juicy.'
+    description:
+      'Plush yet refined tropical aroma with rich, sweet liquor boasting crisp, clean fruit flavors of pomelo, lychee, pineapple, pink lemonade, wild strawberry, fruit striped gum, and hard candy along with herbal tones of Earl Grey black tea and chocolate. Floral, tangy, vibrant and juicy.',
   },
   {
     name: '413',
@@ -69,7 +70,8 @@ let coffees: Coffee[] = [
       fruit: 2,
       caramel: 4,
     },
-    description: 'Maraschino cherry, molasses, strawberry, caramelized fig, blond tobacco, malt. Wherever you are, whatever method you choose, the (413) will not let you down.'
+    description:
+      'Maraschino cherry, molasses, strawberry, caramelized fig, blond tobacco, malt. Wherever you are, whatever method you choose, the (413) will not let you down.',
   },
   {
     name: 'Gato Negro',
@@ -92,7 +94,8 @@ let coffees: Coffee[] = [
       fruit: 0,
       caramel: 3,
     },
-    description: 'Rich and smooth with a dark chocolate finish. This is our go to coffee for dark roast lovers. It is super smooth and chocolaty. It is versatile enough for all brewing methods and it is great straight or with milk.'
+    description:
+      'Rich and smooth with a dark chocolate finish. This is our go to coffee for dark roast lovers. It is super smooth and chocolaty. It is versatile enough for all brewing methods and it is great straight or with milk.',
   },
   {
     name: 'Doka',
@@ -115,7 +118,8 @@ let coffees: Coffee[] = [
       fruit: 3,
       caramel: 3,
     },
-    description: 'Concentrated red cherry and lemon highlights with cocoa and cinnamon on the finish. Lively and dynamic.'
+    description:
+      'Concentrated red cherry and lemon highlights with cocoa and cinnamon on the finish. Lively and dynamic.',
   },
   {
     name: 'Commonwealth',
@@ -138,7 +142,8 @@ let coffees: Coffee[] = [
       fruit: 1,
       caramel: 3,
     },
-    description: 'Sweet, powerful, roasted nut, spiced hot chocolate. A supremely versatile dark roast that is great in every brewing method including espresso preparation.'
+    description:
+      'Sweet, powerful, roasted nut, spiced hot chocolate. A supremely versatile dark roast that is great in every brewing method including espresso preparation.',
   },
   {
     name: 'Malabar Super',
@@ -161,7 +166,8 @@ let coffees: Coffee[] = [
       fruit: 0,
       caramel: 0,
     },
-    description: 'A supremely smooth cup with heavy body, very low acidity, aromas of sandalwood and flavors of dark chocolate, nut and earth. We suggest preparing this coffee in the press pot, stovetop Moka pot or as an espresso.'
+    description:
+      'A supremely smooth cup with heavy body, very low acidity, aromas of sandalwood and flavors of dark chocolate, nut and earth. We suggest preparing this coffee in the press pot, stovetop Moka pot or as an espresso.',
   },
   {
     name: 'Ketiara',
@@ -184,7 +190,8 @@ let coffees: Coffee[] = [
       fruit: 2,
       caramel: 2,
     },
-    description: 'Syrupy body and low acidity with surprising mace and grape qualities, as well as pronounced cedar, chocolate and rich, earthy flavors.'
+    description:
+      'Syrupy body and low acidity with surprising mace and grape qualities, as well as pronounced cedar, chocolate and rich, earthy flavors.',
   },
   {
     name: 'Diamante Perez',
@@ -207,7 +214,8 @@ let coffees: Coffee[] = [
       fruit: 2,
       caramel: 2,
     },
-    description: 'Perfume aroma with dark chocolate character, vibrant lemon and berry tones accentuated with subtle tropical flavors of pineapple and mango. A Huehuetenango powerhouse filled with fruit tones and Zinfandel structure.'
+    description:
+      'Perfume aroma with dark chocolate character, vibrant lemon and berry tones accentuated with subtle tropical flavors of pineapple and mango. A Huehuetenango powerhouse filled with fruit tones and Zinfandel structure.',
   },
   {
     name: 'Diamante Villatoro',
@@ -230,7 +238,8 @@ let coffees: Coffee[] = [
       fruit: 1,
       caramel: 4,
     },
-    description: 'Focused and refined with rich flavors of chewy mallow, milk chocolate, roasted nut, fresh cacao nib, plum and delicate underlying spice. A classic, smooth Huehuetenango profile.'
+    description:
+      'Focused and refined with rich flavors of chewy mallow, milk chocolate, roasted nut, fresh cacao nib, plum and delicate underlying spice. A classic, smooth Huehuetenango profile.',
   },
   {
     name: 'Berkshire',
@@ -253,7 +262,8 @@ let coffees: Coffee[] = [
       fruit: 1,
       caramel: 3,
     },
-    description: 'Bold and luxurious, this coffee combines the dense body that is found in the finest Indonesian coffees with the up front liveliness of coffees from the Americas. It yields a uniquely complex cup with hints of stone fruit and a sweet, chocolaty smooth finish.'
+    description:
+      'Bold and luxurious, this coffee combines the dense body that is found in the finest Indonesian coffees with the up front liveliness of coffees from the Americas. It yields a uniquely complex cup with hints of stone fruit and a sweet, chocolaty smooth finish.',
   },
   {
     name: 'Trilogy',
@@ -276,7 +286,8 @@ let coffees: Coffee[] = [
       fruit: 3,
       caramel: 2,
     },
-    description: 'Lively, complex and full bodied, this coffee is balanced perfection.'
+    description:
+      'Lively, complex and full bodied, this coffee is balanced perfection.',
   },
   {
     name: 'French',
@@ -299,7 +310,7 @@ let coffees: Coffee[] = [
       fruit: 0,
       caramel: 3,
     },
-    description: 'Smooth, rich and seductive with a dark chocolate finish.'
+    description: 'Smooth, rich and seductive with a dark chocolate finish.',
   },
   {
     name: 'Ceremony',
@@ -322,7 +333,8 @@ let coffees: Coffee[] = [
       fruit: 3,
       caramel: 2,
     },
-    description: 'Intense flavors of grilled lemon and Bakers chocolate with a liqueur-like, syrupy body. Packs an aggressive punch and finishes with deep, dark chocolate.'
+    description:
+      'Intense flavors of grilled lemon and Bakers chocolate with a liqueur-like, syrupy body. Packs an aggressive punch and finishes with deep, dark chocolate.',
   },
   {
     name: 'Black Honey',
@@ -345,7 +357,8 @@ let coffees: Coffee[] = [
       fruit: 4,
       caramel: 4,
     },
-    description: 'Powerful caramel sweetness with juicy flavors of tangerine, dewberry, plum, pineapple, mango and rich bodied flavors of hazelnut and blondie. Drying on finish with green apple, distinct minerality and leather.'
+    description:
+      'Powerful caramel sweetness with juicy flavors of tangerine, dewberry, plum, pineapple, mango and rich bodied flavors of hazelnut and blondie. Drying on finish with green apple, distinct minerality and leather.',
   },
   {
     name: 'La Colmenita',
@@ -368,7 +381,8 @@ let coffees: Coffee[] = [
       fruit: 4,
       caramel: 2,
     },
-    description: 'Splashy aroma with concentrated, syrupy body and sweet flavors of cotton candy, peach, orange, strawberry, chocolate and cream. Distinctly fruity while still holding commanding Guatemalan character.'
+    description:
+      'Splashy aroma with concentrated, syrupy body and sweet flavors of cotton candy, peach, orange, strawberry, chocolate and cream. Distinctly fruity while still holding commanding Guatemalan character.',
   },
   {
     name: 'Tolima',
@@ -391,7 +405,8 @@ let coffees: Coffee[] = [
       fruit: 3,
       caramel: 2,
     },
-    description: 'Delicate fruity aroma, with flavors of almond, banana, pear, green grape, beach plum, cocoa powder and jasmine tea. High toned with a long, sweet finish.'
+    description:
+      'Delicate fruity aroma, with flavors of almond, banana, pear, green grape, beach plum, cocoa powder and jasmine tea. High toned with a long, sweet finish.',
   },
   {
     name: 'Gold',
@@ -414,7 +429,8 @@ let coffees: Coffee[] = [
       fruit: 1,
       caramel: 4,
     },
-    description: 'Sweet caramel, dense chocolate, spice box and dried fruit with abundant crema and syrupy smooth body.'
+    description:
+      'Sweet caramel, dense chocolate, spice box and dried fruit with abundant crema and syrupy smooth body.',
   },
   {
     name: 'Italian',
@@ -437,7 +453,8 @@ let coffees: Coffee[] = [
       fruit: 2,
       caramel: 3,
     },
-    description: 'Powerful with a deep, dark chocolate flavors, stewed plum, black cherry.'
+    description:
+      'Powerful with a deep, dark chocolate flavors, stewed plum, black cherry.',
   },
   {
     name: 'Kalledevarapura',
@@ -460,7 +477,8 @@ let coffees: Coffee[] = [
       fruit: 0,
       caramel: 4,
     },
-    description: 'Sweet, delicate, buttery and creamy with filbert and milk chocolate flavors.'
+    description:
+      'Sweet, delicate, buttery and creamy with filbert and milk chocolate flavors.',
   },
   {
     name: 'Allo Carbonic',
@@ -483,7 +501,8 @@ let coffees: Coffee[] = [
       fruit: 4,
       caramel: 2,
     },
-    description: 'Intense floral aroma with juicy flavors of musk melon, strawberry jam and purple grape alongside tart flavors of lingonberry, pink grapefruit and honey crisp apple. Lyrical and elegant with creamy body.'
+    description:
+      'Intense floral aroma with juicy flavors of musk melon, strawberry jam and purple grape alongside tart flavors of lingonberry, pink grapefruit and honey crisp apple. Lyrical and elegant with creamy body.',
   },
   {
     name: 'Gera',
@@ -506,7 +525,8 @@ let coffees: Coffee[] = [
       fruit: 3,
       caramel: 2,
     },
-    description: 'Creamy floral aroma with big peach flavor and vibrant, lemon citrus pushing into herbal lemongrass and black tea. Spicy finish sweetened with caramel and honey.'
+    description:
+      'Creamy floral aroma with big peach flavor and vibrant, lemon citrus pushing into herbal lemongrass and black tea. Spicy finish sweetened with caramel and honey.',
   },
   {
     name: 'Supernatural',
@@ -529,7 +549,8 @@ let coffees: Coffee[] = [
       fruit: 4,
       caramel: 3,
     },
-    description: 'Ripe fruit and carob aroma, with deep flavors of blackberry, blueberry and juicy, fruit flavors supported by herbal tones of lavender, bergamot, rooibos, black tea, zinger and milk chocolate. Makes an incredible single origin espresso!'
+    description:
+      'Ripe fruit and carob aroma, with deep flavors of blackberry, blueberry and juicy, fruit flavors supported by herbal tones of lavender, bergamot, rooibos, black tea, zinger and milk chocolate. Makes an incredible single origin espresso!',
   },
   {
     name: 'Vienna',
@@ -552,7 +573,8 @@ let coffees: Coffee[] = [
       fruit: 2,
       caramel: 4,
     },
-    description: 'Ripe cherry and chocolate tones with a velvety smooth finish.'
+    description:
+      'Ripe cherry and chocolate tones with a velvety smooth finish.',
   },
   {
     name: 'Decaf Berkshire',
@@ -575,7 +597,8 @@ let coffees: Coffee[] = [
       fruit: 1,
       caramel: 3,
     },
-    description: 'Bold and luxurious, this coffee combines the dense body that is found in the finest Indonesian coffees with the up front liveliness of coffees from the Americas. It yields a uniquely complex cup with hints of fruit and a sweet chocolaty smooth finish.'
+    description:
+      'Bold and luxurious, this coffee combines the dense body that is found in the finest Indonesian coffees with the up front liveliness of coffees from the Americas. It yields a uniquely complex cup with hints of fruit and a sweet chocolaty smooth finish.',
   },
   {
     name: 'Decaf French',
@@ -598,7 +621,7 @@ let coffees: Coffee[] = [
       fruit: 0,
       caramel: 3,
     },
-    description: 'Rich and smooth with a dark chocolate finish.'
+    description: 'Rich and smooth with a dark chocolate finish.',
   },
   {
     name: 'Decaf Gold',
@@ -621,8 +644,9 @@ let coffees: Coffee[] = [
       fruit: 1,
       caramel: 3,
     },
-    description: 'Sweet caramel, dense chocolate, spice box and dried fruit with abundant crema and syrupy smooth body. '
+    description:
+      'Sweet caramel, dense chocolate, spice box and dried fruit with abundant crema and syrupy smooth body. ',
   },
-]
+];
 
 export default coffees;
