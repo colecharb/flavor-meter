@@ -8,23 +8,27 @@ import {
 } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
 
-export type FlavorLevel = 0 | 1 | 2 | 3 | 4;
-const FALVOR_SCALE_MIN = 0; // allowance for logo in center
-const FLAVOR_SCALE_MAX = 4;
+export const FLAVORS = [
+  'chocolate',
+  'spice',
+  'nut',
+  'herb',
+  'flower',
+  'fruit',
+  'caramel',
+] as const;
 
-export type FlavorLevels = {
-  chocolate: FlavorLevel;
-  spice: FlavorLevel;
-  nut: FlavorLevel;
-  herb: FlavorLevel;
-  flower: FlavorLevel;
-  fruit: FlavorLevel;
-  caramel: FlavorLevel;
-};
+export const FLAVOR_LEVELS = [0, 1, 2, 3, 4] as const;
 
-export type FlavorName = keyof FlavorLevels; //'chocolate' | 'spice' | 'nut' | 'herb' | 'flower' | 'fruit' | 'caramel';
+export type FlavorLevel = (typeof FLAVOR_LEVELS)[number];
+const FALVOR_SCALE_MIN = FLAVOR_LEVELS[0];
+const FLAVOR_SCALE_MAX = FLAVOR_LEVELS[4]; // todo: use negative index, somehow
 
-const flavorColors: { [Property in FlavorName]: string } = {
+export type FlavorName = (typeof FLAVORS)[number];
+
+export type FlavorLevels = { [key in FlavorName]: FlavorLevel };
+
+const flavorColors: { [key in FlavorName]: string } = {
   chocolate: '#844229',
   spice: '#af4e25',
   nut: '#9a6126',

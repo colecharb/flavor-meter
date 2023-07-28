@@ -1,4 +1,5 @@
-import { Coffee, FlavorName } from './FlavorMeter';
+import { Coffee } from './FlavorMeter';
+import { FlavorMetric } from './FlavorMetrics';
 import HorizontalLine from './HorizontalLine';
 
 export const THRESHOLD = 100;
@@ -8,18 +9,31 @@ export default function SimilarCoffees({
   index,
   coffees,
   setCoffeeIndex,
+  flavorMetric,
 }: {
   index: number;
   coffees: Coffee[];
   setCoffeeIndex: React.Dispatch<React.SetStateAction<number>>;
+  flavorMetric: FlavorMetric;
 }) {
   const coffee = coffees[index];
 
-  const similarCoffeeIndices = getSimilarCoffeeIndices({
-    toIndex: index,
-    from: coffees,
-    threshold: THRESHOLD,
-  });
+  const getCoffeeDistances = ({
+    toIndex,
+    from,
+  }: {
+    toIndex: number;
+    from: Coffee[];
+  }) => {
+    const coffees = from;
+    const coffee = coffees[toIndex];
+
+    const coffeeDistancesAndIndices = coffees.map((c, i) => {
+      return { coffee: c, index: i, distance: flavorMetric(coffee, c) };
+    });
+
+    return coffeeDistancesAndIndices;
+  };
 
   const topSimilarCoffeeIndices = (n: number = 5) =>
     getCoffeeDistances({
@@ -34,8 +48,6 @@ export default function SimilarCoffees({
       .sort((a, b) => a.distance - b.distance)
       .map((value) => value.index)
       .slice(0, n);
-
-  console.log(similarCoffeeIndices);
 
   return (
     <>
@@ -64,57 +76,3 @@ export default function SimilarCoffees({
     </>
   );
 }
-
-const getSimilarCoffeeIndices = ({
-  toIndex,
-  from,
-  threshold,
-}: {
-  toIndex: number;
-  from: Coffee[];
-  threshold: number;
-}) => {
-  const coffees = from;
-
-  const coffee = coffees[toIndex];
-
-  return [...Array(coffees.length).keys()].filter(
-    (i) =>
-      coffee.name !== coffees[i].name &&
-      // && coffee.roast === coffees[i].roast
-      euclidean(coffee, coffees[i]) <= threshold
-  );
-};
-
-const getCoffeeDistances = ({
-  toIndex,
-  from,
-}: {
-  toIndex: number;
-  from: Coffee[];
-}) => {
-  const coffees = from;
-  const coffee = coffees[toIndex];
-
-  const coffeeDistancesAndIndices = coffees.map((c, i) => {
-    return { coffee: c, index: i, distance: euclidean(coffee, c) };
-  });
-
-  return coffeeDistancesAndIndices;
-};
-
-type Metric = (c1: Coffee, c2: Coffee) => number;
-
-const euclidean: Metric = (c1, c2) => {
-  const flavors = Object.keys(c1.flavorLevels) as FlavorName[];
-
-  const squaredDifferences = flavors.map((flavor) =>
-    Math.pow(c1.flavorLevels[flavor] - c2.flavorLevels[flavor], 2)
-  );
-
-  const sumOfSquaredDifferences = squaredDifferences.reduce(
-    (previous, current) => previous + current
-  );
-
-  return Math.sqrt(sumOfSquaredDifferences);
-};
