@@ -21,8 +21,6 @@ export const FLAVORS = [
 export const FLAVOR_LEVELS = [0, 1, 2, 3, 4] as const;
 
 export type FlavorLevel = (typeof FLAVOR_LEVELS)[number];
-const FALVOR_SCALE_MIN = FLAVOR_LEVELS[0];
-const FLAVOR_SCALE_MAX = FLAVOR_LEVELS[4]; // todo: use negative index, somehow
 
 export type FlavorName = (typeof FLAVORS)[number];
 
@@ -36,7 +34,7 @@ const flavorColors: { [key in FlavorName]: string } = {
   flower: '#afc000',
   fruit: '#edba22',
   caramel: '#cd8022',
-};
+} as const;
 
 export type Coffee = {
   name: string;
@@ -72,7 +70,13 @@ export default function FlavorMeter({ coffee }: { coffee: Coffee }) {
 
   return (
     // <div className='test-border'>
-    <div style={{ position: 'relative', aspectRatio: 1, width: '100%' }}>
+    <div
+      style={{
+        position: 'relative',
+        aspectRatio: 1,
+        width: '100%',
+      }}
+    >
       <PolarArea
         title={coffee.name}
         // style={{ zIndex: 10 }}
@@ -107,8 +111,8 @@ export default function FlavorMeter({ coffee }: { coffee: Coffee }) {
           scales: {
             r: {
               // display: false,
-              min: FALVOR_SCALE_MIN,
-              max: FLAVOR_SCALE_MAX,
+              min: FLAVOR_LEVELS[0],
+              max: FLAVOR_LEVELS.at(-1),
               pointLabels: {
                 // color: Object.values(flavorColors),
                 color: (context) =>
@@ -122,10 +126,11 @@ export default function FlavorMeter({ coffee }: { coffee: Coffee }) {
               },
               ticks: {
                 display: false,
+                stepSize: 1,
               },
               grid: {
                 lineWidth: 1,
-
+                color: '#fff5',
                 // display: false,
               },
             },
